@@ -21,8 +21,8 @@ description:
   Wikilink support, backlinks, local graph, tags, and link previews.
 page_title:
   "🪴 Order"
-links:
-  - link_name: Twitter
-    link: https://twitter.com/_jzhao
-  - link_name: Github
-    link: https://github.com/jackyzha0
+#links:
+#  - link_name: Twitter
+#    link: https://twitter.com/_jzhao
+#  - link_name: Github
+#    link: https://github.com/jackyzha0
