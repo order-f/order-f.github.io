@@ -27,7 +27,7 @@ links:
   - link_name: Github
     link: https://github.com/order-f
 
-#favicon:
-#  - { rel: "shortcut icon", href: "heart2.700.TheHeartInLibrary.png", type: "image/png" }
+favicon:
+  - { rel: "shortcut icon", href: "HeartOfLibrary.png", type: "image/png" }
 #  - { ... } # Repeat for each additional favicon you want to add
 
