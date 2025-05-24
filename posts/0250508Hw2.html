@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>86754ebf71a94fb1a99c1bd96481e6fa</title>
+  <title>e286fde6ed164946a2f59ef4d8deb05d</title>
   <style>
     html {
       line-height: 1.5;
@@ -232,13 +232,16 @@
 id="monte-carlo-pricing-of-european-vanilla-and-binary-call-options"><strong>Monte
 Carlo pricing of European vanilla and binary call options</strong></h2>
 <p>Yin Hei Chow</p>
+<p>Submitted for the second exercise in the Certificate in Quantitative
+Finance, asking to experiment with Monte Carlo option pricing schemes
+under different model parameters in the Black-Scholes framework.</p>
 <head>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 </head>
 </div>
 <div id="8d906e42" class="cell markdown">
-<h3 id="introduction">Introduction</h3>
+<h3 id="1-introduction">1. Introduction</h3>
 <p>This report focuses on the pricing of European vanilla and binary
 call options using Monte Carlo schemes. Binary calls herein refers to
 European-style cash-or-nothing binary calls, which payoff one or zero
@@ -321,9 +324,9 @@ class="math display"><em>V</em>(0) = <em>e</em><sup>−<em>r</em><em>T</em><
 </div>
 <div id="16364533" class="cell markdown">
 <h3
-id="results--discussion-error-analysis-interesting-observations-and-problems-encountered">Results
-&amp; Discussion: Error analysis, interesting observations and problems
-encountered</h3>
+id="2-results--discussion-error-analysis-interesting-observations-and-problems-encountered">2.
+Results &amp; Discussion: Error analysis, interesting observations and
+problems encountered</h3>
 <p>Start by loading the required modules and defining the three sampling
 schemes</p>
 </div>
@@ -377,8 +380,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> S</span></code></pre></div>
 </div>
 <div id="3cb0b27e" class="cell markdown">
-<h4 id="visualization--validation-of-monte-carlo-sample">Visualization
-&amp; validation of Monte Carlo sample</h4>
+<h4 id="21-visualization--validation-of-monte-carlo-sample">2.1
+Visualization &amp; validation of Monte Carlo sample</h4>
 <p>As a sanity check, the terminal distributions of asset price are
 plotted against the theoretical lognormal distribution. The resultant
 distribution is regular and high degree of agreement is shown. However,
@@ -424,7 +427,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a hr
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r&#39;Asset price at maturity $S_T$&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/8c6831e5192a04b135f84102246bc1a89b2488b8.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/8c6831e5192a04b135f84102246bc1a89b2488b8.png" /></p>
 </div>
 </div>
 <div id="41f5cb0b" class="cell code" data-execution_count="17">
@@ -435,11 +438,12 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r&#39;Asset price $S_</span><span class="sc">{t_i}</span><span class="vs">$&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/b57a195ae07cf6231f56fa9926cff1ffb506009f.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/b57a195ae07cf6231f56fa9926cff1ffb506009f.png" /></p>
 </div>
 </div>
 <div id="11aea6b8" class="cell markdown">
-<h5 id="validation-martingale-test">Validation: Martingale test</h5>
+<h5 id="211-validation-martingale-test">2.1.1 Validation: Martingale
+test</h5>
 <p>Perform the martingale test on the processes <span
 class="math inline"><em>S</em>(<em>t</em><sub><em>i</em></sub>)<em>e</em><sup><em>D</em><em>t</em><sub><em>i</em></sub></sup></span>
 generated under the two numerical schemes. Martingale property implies
@@ -496,7 +500,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a h
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/89ab2d0b1df05582b3bc0efbe2000a8d47c24b44.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/89ab2d0b1df05582b3bc0efbe2000a8d47c24b44.png" /></p>
 </div>
 </div>
 <div id="a9e73fe9" class="cell markdown">
@@ -512,7 +516,8 @@ Monte-Carlo samples are sufficient for subsequent investigations on
 option prices.</p>
 </div>
 <div id="c48bb002" class="cell markdown">
-<h4 id="error-analysis-scaling-laws">Error analysis: scaling laws</h4>
+<h4 id="22-error-analysis-scaling-laws">2.2 Error analysis: scaling
+laws</h4>
 <p>Milstein scheme improves upon Euler-Maruyama by incorporating the
 Milstein correction term. However, this is not to say that price
 estimates obtained with Milstein scheme must be more accurate than that
@@ -590,7 +595,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a h
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/b9452cd63d7ee2815ccb6dc0ba53d385097d0c8b.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/b9452cd63d7ee2815ccb6dc0ba53d385097d0c8b.png" /></p>
 </div>
 </div>
 <div id="7ac35095" class="cell markdown">
@@ -646,8 +651,8 @@ Euler-Maruyama and Milstein schemes in solving Ito SDEs: <center></p>
 </center>
 </div>
 <div id="bab997aa" class="cell markdown">
-<h4 id="price-estimates-and-error-analysis">Price estimates and error
-analysis</h4>
+<h4 id="23-price-estimates-and-error-analysis">2.3 Price estimates and
+error analysis</h4>
 <p>Conveniently, the two contracts of concern have exact solutions for
 the prices using Black-Scholes equation. The prices determined by
 Black=Scholes equation will therefore by used to benchmark the three
@@ -794,7 +799,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a h
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/90fa8bd768942e3b0932eec52490e4b780345b0c.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/90fa8bd768942e3b0932eec52490e4b780345b0c.png" /></p>
 </div>
 </div>
 <div id="8294ffef" class="cell code">
@@ -808,7 +813,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a h
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/d23a5b30e641a2b656de9b95c8fc04e2307ceeba.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/d23a5b30e641a2b656de9b95c8fc04e2307ceeba.png" /></p>
 </div>
 </div>
 <div id="417fe0f3" class="cell markdown">
@@ -922,8 +927,8 @@ observed that the binary call is priced with higher accuracy and
 precision.</p>
 </div>
 <div id="23127634" class="cell markdown">
-<h5 id="error-analysis-over-a-range-of-strike-and-maturity">Error
-analysis over a range of strike and maturity</h5>
+<h5 id="231-error-analysis-over-a-range-of-strike-and-maturity">2.3.1
+Error analysis over a range of strike and maturity</h5>
 <p>In the above error analysis, particular values for the model
 parameters are chosen. This section investigates the price and error of
 the two options over the strike-maturity plane. The next section fixes
@@ -1010,7 +1015,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a h
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].axvline(S0,color<span class="op">=</span><span class="st">&#39;grey&#39;</span>,alpha<span class="op">=</span><span class="fl">0.8</span>,linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/4805ca15c04dfc7b469e87feeb51dbce6ff44dbc.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/4805ca15c04dfc7b469e87feeb51dbce6ff44dbc.png" /></p>
 </div>
 </div>
 <div id="68dd2e2b" class="cell code">
@@ -1033,7 +1038,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a h
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].axvline(S0,color<span class="op">=</span><span class="st">&#39;grey&#39;</span>,alpha<span class="op">=</span><span class="fl">0.8</span>,linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/0ac37db522a08b403fb342933a67f493ff5cd544.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/0ac37db522a08b403fb342933a67f493ff5cd544.png" /></p>
 </div>
 </div>
 <div id="d62e7529" class="cell markdown">
@@ -1122,7 +1127,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a h
 <span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/ab4c279f8fc55d49a9e15763a001251d0198a187.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/ab4c279f8fc55d49a9e15763a001251d0198a187.png" /></p>
 </div>
 </div>
 <div id="59ab0ed6" class="cell code">
@@ -1150,7 +1155,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a h
 <span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>ax.view_init(<span class="dv">20</span>, <span class="dv">160</span>)</span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/d87583a739112945f6c63beaa44958dba2bd0669.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/d87583a739112945f6c63beaa44958dba2bd0669.png" /></p>
 </div>
 </div>
 <div id="c464c4de" class="cell code">
@@ -1180,7 +1185,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a h
 <span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/a9b8cb6fbf1f9b237e5ea1d23356c03d942404cf.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/a9b8cb6fbf1f9b237e5ea1d23356c03d942404cf.png" /></p>
 </div>
 </div>
 <div id="10729847" class="cell code">
@@ -1207,7 +1212,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a h
 <span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>ax.view_init(<span class="dv">20</span>, <span class="dv">160</span>)</span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/d38506eaff5045a0a8fa57a7a9799130951e8e08.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/d38506eaff5045a0a8fa57a7a9799130951e8e08.png" /></p>
 </div>
 </div>
 <div id="977aa044" class="cell code">
@@ -1233,7 +1238,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a h
 <span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>ax.view_init(<span class="dv">10</span>, <span class="dv">10</span>)</span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/bc7ed1136c4297a834a788237bfdd9d5cef6829d.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/bc7ed1136c4297a834a788237bfdd9d5cef6829d.png" /></p>
 </div>
 </div>
 <div id="e59176e2" class="cell markdown">
@@ -1248,8 +1253,8 @@ price.</p>
 </div>
 <div id="c7590e3c" class="cell markdown">
 <h5
-id="error-analysis-over-a-range-of-volatility-and-dividend-yield">Error
-analysis over a range of volatility and dividend yield</h5>
+id="232-error-analysis-over-a-range-of-volatility-and-dividend-yield">2.3.2
+Error analysis over a range of volatility and dividend yield</h5>
 <p>The above analysis is repeated, but with a range of values for
 volatility and dividend yield indead. The below two figures for the two
 options reflect that an increase in volatility greatly increase the
@@ -1322,7 +1327,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a h
 <span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="vs">r&#39;Volatility $\sigma$&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/029fbf0edc6f4aa09c4238c41c3faf33748aee60.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/029fbf0edc6f4aa09c4238c41c3faf33748aee60.png" /></p>
 </div>
 </div>
 <div id="da0dbb39" class="cell code">
@@ -1349,7 +1354,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a h
 <span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="vs">r&#39;Volatility $\sigma$&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/2f591abe7b646c7079510d4b03e642576011b7d9.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/2f591abe7b646c7079510d4b03e642576011b7d9.png" /></p>
 </div>
 </div>
 <div id="a0d463b3" class="cell markdown">
@@ -1433,7 +1438,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a h
 <span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/46cbbbaea5c76e10ae5aed21a18759a3c62b7fff.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/46cbbbaea5c76e10ae5aed21a18759a3c62b7fff.png" /></p>
 </div>
 </div>
 <div id="d41e89d0" class="cell code">
@@ -1464,7 +1469,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a h
 <span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/a6c3b48f463be59530c866c88d91b123b33f837c.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/a6c3b48f463be59530c866c88d91b123b33f837c.png" /></p>
 </div>
 </div>
 <div id="345a33e0" class="cell code">
@@ -1491,7 +1496,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a h
 <span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a>ax.view_init(<span class="dv">50</span>, <span class="op">-</span><span class="dv">30</span>)</span></code></pre></div>
 <div class="output display_data">
 <p><img
-src="vertopal_bdbe7793daab4e5ab0d80bebf1bb11ac/56b00e7d8203bd1a6db800da56a735b4c949eeb6.png" /></p>
+src="vertopal_2d81b2fcadb74bc792621e62e7ff9cd9/56b00e7d8203bd1a6db800da56a735b4c949eeb6.png" /></p>
 </div>
 </div>
 <div id="9f56c39f" class="cell markdown">
@@ -1505,7 +1510,7 @@ rate, the option price increases as volatility increases.</p>
 again significantly smaller.</p>
 </div>
 <div id="24480d21" class="cell markdown">
-<h3 id="conclusion">Conclusion</h3>
+<h3 id="3-conclusion">3. Conclusion</h3>
 <p>This report concerns with the pricing problem of financial
 derivative. Two derivatives - European calls and binary calls - are
 introduced, as well as three numerical pricing schemes based on Monte
